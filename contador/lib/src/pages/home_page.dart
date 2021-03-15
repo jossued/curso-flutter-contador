@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget{
+class HomePage extends StatelessWidget {
+  final estiloTexto = new TextStyle(fontSize: 20);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,8 +13,19 @@ class HomePage extends StatelessWidget{
         centerTitle: true,
       ),
       body: Center(
-        child: Text('Hola Mundo'),
-      ),
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'Número de clics:',
+            style: estiloTexto,
+          ),
+          Text(
+            '0',
+            style: estiloTexto,
+          )
+        ],
+      )),
     );
   }
 }
