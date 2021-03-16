@@ -40,34 +40,37 @@ class _ContadorPageState extends State<ContadorPage> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        SizedBox(width: 30.00,),
+        SizedBox(
+          width: 30.00,
+        ),
         FloatingActionButton(
           child: Icon(Icons.exposure_zero),
-          onPressed: () {
-            setState(() {
-              _conteo++;
-            });
-          },
+          onPressed: _reset,
         ),
         Expanded(child: SizedBox()),
-        FloatingActionButton(
-          child: Icon(Icons.remove),
-          onPressed: () {
-            setState(() {
-              _conteo++;
-            });
-          },
+        FloatingActionButton(child: Icon(Icons.remove), onPressed: _sustraer),
+        SizedBox(
+          width: 5.00,
         ),
-        SizedBox(width: 5.00,),
         FloatingActionButton(
           child: Icon(Icons.add),
-          onPressed: () {
-            setState(() {
-              _conteo++;
-            });
-          },
+          onPressed: _agregar,
         ),
       ],
     );
+  }
+
+  void _agregar() {
+    setState(() {
+      _conteo++;
+    });
+  }
+
+  void _sustraer() {
+    setState(() => _conteo--);
+  }
+
+  void _reset() {
+    setState(() => _conteo = 0);
   }
 }
